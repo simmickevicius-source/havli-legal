@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy &middot; Havli</title>
+<meta name="description" content="How Havli collects, uses, and protects your data.">
+<meta name="robots" content="index, follow">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#0E5F58">
+
+<!--
+  Static privacy policy page, styled with the same design tokens as
+  docs/confirm/index.html (colours/radii copied verbatim from
+  lib/core/theme/app_colors.dart and app_radii.dart). No external
+  requests: system fonts only, no analytics, no third-party scripts --
+  matches the confirm page's own reasoning for why that matters on a
+  page like this.
+
+  Content is grounded directly in the app's actual schema and
+  integrations (supabase/migrations/, pubspec.yaml) rather than
+  boilerplate -- see the commit message / PR description for what was
+  checked before writing this.
+-->
+
+<style>
+  :root {
+    --screen-bg: #F4F1EB;
+    --surface: #FFFFFF;
+    --teal: #0E5F58;
+    --teal-tint: #E1EDEA;
+    --amber: #E39A22;
+    --ink: #17211F;
+    --text-muted: #6B7A76;
+    --label-muted: #8B9995;
+    --radius-card: 20px;
+    --radius-sheet-top: 30px;
+    --radius-icon: 19px;
+    --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, system-ui, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo,
+      Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+  }
+
+  body {
+    background: var(--teal);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  header {
+    padding: 34px 26px 30px;
+    color: #FFFFFF;
+  }
+
+  .mark {
+    position: relative;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    border-radius: var(--radius-icon);
+    color: var(--teal);
+    font-size: 29px;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .mark::after {
+    content: "";
+    position: absolute;
+    right: -5px;
+    bottom: -5px;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    background: var(--amber);
+    border: 3px solid var(--teal);
+  }
+
+  h1 {
+    margin: 22px 0 0;
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: -0.4px;
+    line-height: 1.1;
+  }
+
+  header p {
+    margin: 8px 0 0;
+    color: #9FC9C3;
+    font-size: 15px;
+    line-height: 1.5;
+    max-width: 38ch;
+  }
+
+  main {
+    flex: 1;
+    background: var(--screen-bg);
+    border-radius: var(--radius-sheet-top) var(--radius-sheet-top) 0 0;
+    padding: 30px 22px 48px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid rgba(23, 33, 31, 0.07);
+    border-radius: var(--radius-card);
+    padding: 26px 20px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--teal-tint);
+    border: 1px solid rgba(14, 95, 88, 0.2);
+    border-radius: 15px;
+    padding: 7px 13px;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+
+  .card > p.intro {
+    margin: 16px 0 0;
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  section {
+    margin-top: 30px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(23, 33, 31, 0.08);
+  }
+
+  section:first-of-type {
+    margin-top: 26px;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.1px;
+    color: var(--ink);
+  }
+
+  h3 {
+    margin: 18px 0 0;
+    font-size: 14.5px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    color: var(--label-muted);
+  }
+
+  section p {
+    margin: 10px 0 0;
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  section p:first-of-type {
+    margin-top: 12px;
+  }
+
+  ul {
+    margin: 10px 0 0;
+    padding-left: 20px;
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  li { margin-top: 6px; }
+  li:first-child { margin-top: 0; }
+
+  li strong { color: var(--ink); }
+
+  .callout {
+    margin: 12px 0 0;
+    padding: 14px 16px;
+    background: var(--teal-tint);
+    border: 1px solid rgba(14, 95, 88, 0.18);
+    border-radius: 14px;
+    color: var(--teal);
+    font-size: 14.5px;
+    line-height: 1.55;
+  }
+
+  .callout strong { font-weight: 700; }
+
+  a {
+    color: var(--teal);
+    font-weight: 600;
+  }
+
+  .contact {
+    display: block;
+    margin-top: 14px;
+    padding: 16px;
+    background: var(--teal);
+    border-radius: 17px;
+    color: #FFFFFF;
+    font-family: var(--font-sans);
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .contact:active { opacity: 0.9; }
+
+  .note {
+    margin: 20px auto 0;
+    max-width: 640px;
+    color: var(--label-muted);
+    font-size: 13px;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  @media (min-width: 620px) {
+    header { padding: 56px 40px 40px; }
+    main { padding: 40px; }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="mark" aria-hidden="true">H</div>
+    <h1>Privacy Policy</h1>
+    <p>How Havli collects, uses, and protects your data.</p>
+  </header>
+
+  <main>
+    <div class="card">
+      <span class="badge">Effective 19 September 2026</span>
+      <p class="intro">
+        Havli is a household budgeting app. This policy explains what
+        information it collects, why, who it&rsquo;s shared with, how long
+        it&rsquo;s kept, and the rights you have over it.
+      </p>
+
+      <section>
+        <h2>Who is responsible for your data</h2>
+        <p>
+          Havli is developed and operated by Simonas Mickevi&#269;ius,
+          trading as an individual (individuali veikla) in Lithuania. For
+          the purposes of data protection law, Simonas Mickevi&#269;ius is
+          the data controller for the personal data described in this
+          policy.
+        </p>
+        <p>
+          Contact: <a href="mailto:sim.mickevicius@gmail.com">sim.mickevicius@gmail.com</a>
+        </p>
+      </section>
+
+      <section>
+        <h2>What data Havli collects</h2>
+        <p>
+          Havli is used by a household (a small group of people, such as a
+          family or housemates, sharing one budget). Creating an account
+          and using the app involves the following personal data:
+        </p>
+        <ul>
+          <li><strong>Account data</strong> &mdash; the email address and
+            password you sign up with, handled by our authentication
+            provider (see &ldquo;Who we share data with&rdquo; below). We
+            never see or store your password ourselves.</li>
+          <li><strong>Household &amp; membership data</strong> &mdash; your
+            household&rsquo;s name, currency, a display name and colour you
+            pick for yourself, and your role within the household.</li>
+          <li><strong>Financial figures you enter</strong> &mdash;
+            expenses, income entries, savings goals and contributions
+            toward them, each with an amount, category, date, and an
+            optional note, all typed in by you or another household
+            member.</li>
+          <li><strong>To&#8209;dos</strong> &mdash; task titles, who
+            they&rsquo;re assigned to, due dates, notes, and an optional
+            cost.</li>
+          <li><strong>Calendar events</strong> &mdash; event titles,
+            times, location, and which household member they&rsquo;re
+            associated with.</li>
+          <li><strong>Push notification data</strong> &mdash; a device
+            token used to deliver notifications (like bill reminders or a
+            weekly digest) to your phone, and your per&#8209;member
+            notification preferences.</li>
+        </ul>
+        <div class="callout">
+          <strong>Havli does not connect to your bank or any financial
+          institution.</strong> There is no bank-linking, no Open Banking
+          integration, and no third-party financial data source anywhere
+          in the app. Every expense, income, and savings figure is a plain
+          number you (or someone in your household) type in yourself.
+        </div>
+      </section>
+
+      <section>
+        <h2>Why we collect it</h2>
+        <p>
+          All of the data above is collected for one reason: to run the
+          core functionality of the app &mdash; letting your household
+          track shared expenses, income, savings goals, to&#8209;dos, and
+          a shared calendar, and to notify you about the things you&rsquo;ve
+          asked to be notified about. Household financial data is visible
+          to the other members of your household by design, since that
+          shared visibility is the point of the app. It is never used for
+          advertising, and Havli has no analytics or tracking SDKs of any
+          kind built in.
+        </p>
+      </section>
+
+      <section>
+        <h2>Who we share data with</h2>
+        <p>
+          Havli uses a small number of third-party service providers to
+          operate the app. They act as data processors on our behalf,
+          under their own data processing terms &mdash; we don&rsquo;t sell
+          or share your data with anyone beyond what&rsquo;s needed to run
+          the app:
+        </p>
+        <ul>
+          <li><strong>Supabase</strong> &mdash; provides the database,
+            authentication, and backend hosting that store and serve all
+            of the data described above. Our Supabase database is hosted
+            in the EU (AWS eu-west-1, Ireland), so this data stays within
+            the EU/EEA &mdash; there&rsquo;s no international transfer
+            involved for this processor.</li>
+          <li><strong>Firebase Cloud Messaging (Google)</strong> &mdash;
+            delivers push notifications to your device. Google receives
+            your device&rsquo;s push token for this purpose only. As part
+            of Google&rsquo;s global infrastructure, this does involve
+            processing outside the EU; Google provides Standard
+            Contractual Clauses (SCCs) as its standard safeguard for that
+            transfer.</li>
+        </ul>
+        <p>
+          Havli does not currently have any payment or subscription
+          billing provider integrated, so no billing or payment data is
+          collected or shared. We do not sell your personal data to
+          anyone.
+        </p>
+      </section>
+
+      <section>
+        <h2>How long we keep your data</h2>
+        <p>
+          Active household data (expenses, to&#8209;dos, calendar events,
+          and contributions toward savings goals) is kept for as long as
+          your household uses Havli. To keep old, no-longer-relevant
+          entries from piling up indefinitely, a scheduled housekeeping
+          job automatically archives and removes entries once they are
+          more than <strong>24 months old</strong> (based on their
+          original date, such as the date an expense occurred or a
+          to&#8209;do was created).
+        </p>
+        <p>
+          When an entry is archived this way, a snapshot of it is kept
+          separately for a further <strong>6 months</strong> before being
+          permanently deleted, so that a mistaken automatic removal could
+          still be investigated or recovered from in that window. Put
+          simply: no individual expense, to&#8209;do, or calendar entry is
+          kept for longer than about 30 months after the date it
+          originally relates to, and the system enforces this
+          automatically on a monthly schedule.
+        </p>
+        <p>
+          Account data (your email address) and your household&rsquo;s
+          own current data are kept for as long as your account exists.
+        </p>
+      </section>
+
+      <section>
+        <h2>Your rights</h2>
+        <p>
+          If you&rsquo;re in the EU/EEA or UK, data protection law (GDPR)
+          gives you rights over your personal data, including the right
+          to:
+        </p>
+        <ul>
+          <li><strong>Access</strong> the personal data we hold about
+            you.</li>
+          <li><strong>Correct</strong> inaccurate data &mdash; most of
+            this you can already edit directly in the app.</li>
+          <li><strong>Delete</strong> your data.</li>
+          <li><strong>Object to or restrict</strong> certain processing,
+            and to data portability where applicable.</li>
+        </ul>
+        <p>
+          Havli doesn&rsquo;t yet have a self-service &ldquo;delete my
+          account&rdquo; button in the app itself. To exercise any of
+          these rights &mdash; including requesting a copy of your data or
+          having your account and its data deleted &mdash; email
+          <a href="mailto:sim.mickevicius@gmail.com">sim.mickevicius@gmail.com</a>
+          and we will action it directly.
+        </p>
+      </section>
+
+      <section>
+        <h2>Children&rsquo;s privacy</h2>
+        <p>
+          Havli is intended for adults managing a household budget. The
+          app does not currently ask for or verify anyone&rsquo;s age
+          during sign-up, so we have no reliable way to detect if a child
+          has created an account. We do not knowingly collect data from
+          children, and we don&rsquo;t design any feature specifically for
+          them. If you believe a child has used Havli and provided
+          personal data, please contact us at
+          <a href="mailto:sim.mickevicius@gmail.com">sim.mickevicius@gmail.com</a>
+          and we will delete the account.
+        </p>
+      </section>
+
+      <section>
+        <h2>Security</h2>
+        <p>
+          Household data is protected by database-level access rules that
+          only allow members of a household to read or write that
+          household&rsquo;s own data. Push notification device tokens are
+          restricted further, visible only to the account they belong to.
+          No method of storage or transmission is perfectly secure, but we
+          take reasonable steps to protect your data.
+        </p>
+      </section>
+
+      <section>
+        <h2>Changes to this policy</h2>
+        <p>
+          We may update this policy as the app changes. If we make a
+          material change &mdash; for example, adding a new third-party
+          service that processes your data &mdash; we&rsquo;ll let you know
+          inside the app. The &ldquo;Effective&rdquo; date at the top of
+          this page always reflects the version currently in force.
+        </p>
+      </section>
+
+      <section>
+        <h2>Contact</h2>
+        <p>
+          Questions about this policy or your data can be sent directly
+          to the developer:
+        </p>
+        <a class="contact" href="mailto:sim.mickevicius@gmail.com">Email sim.mickevicius@gmail.com</a>
+      </section>
+    </div>
+
+    <p class="note">
+      Havli &middot; developed by Simonas Mickevi&#269;ius, Lithuania
+    </p>
+  </main>
+</body>
+</html>
