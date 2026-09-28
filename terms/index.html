@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terms of Use &middot; Havli</title>
+<meta name="description" content="The terms you agree to by using Havli, including Havli Premium subscriptions.">
+<meta name="robots" content="index, follow">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#0E5F58">
+
+<!--
+  Same design tokens/markup pattern as ../index.html (the privacy
+  policy): kept as its own page, not a section of that one, so each
+  can be linked independently (PaywallScreen links both separately,
+  and Apple/Google both expect a standalone Terms of Use URL).
+
+  Written to replace linking Apple's standard EULA from
+  lib/features/settings/presentation/paywall_screen.dart: that
+  document is iTunes/App-Store-specific and doesn't make sense shown
+  to an Android user who subscribed through Google Play. Using one
+  real Terms of Use on both platforms removes that mismatch entirely,
+  which Apple's own subscription guidelines explicitly allow (a
+  custom Terms of Use is an accepted alternative to their standard
+  one, not just a fallback).
+-->
+
+<style>
+  :root {
+    --screen-bg: #F4F1EB;
+    --surface: #FFFFFF;
+    --teal: #0E5F58;
+    --teal-tint: #E1EDEA;
+    --amber: #E39A22;
+    --ink: #17211F;
+    --text-muted: #6B7A76;
+    --label-muted: #8B9995;
+    --radius-card: 20px;
+    --radius-sheet-top: 30px;
+    --radius-icon: 19px;
+    --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, system-ui, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo,
+      Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+  }
+
+  body {
+    background: var(--teal);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  header {
+    padding: 34px 26px 30px;
+    color: #FFFFFF;
+  }
+
+  .mark {
+    position: relative;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    border-radius: var(--radius-icon);
+    color: var(--teal);
+    font-size: 29px;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .mark::after {
+    content: "";
+    position: absolute;
+    right: -5px;
+    bottom: -5px;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    background: var(--amber);
+    border: 3px solid var(--teal);
+  }
+
+  h1 {
+    margin: 22px 0 0;
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: -0.4px;
+    line-height: 1.1;
+  }
+
+  header p {
+    margin: 8px 0 0;
+    color: #9FC9C3;
+    font-size: 15px;
+    line-height: 1.5;
+    max-width: 38ch;
+  }
+
+  main {
+    flex: 1;
+    background: var(--screen-bg);
+    border-radius: var(--radius-sheet-top) var(--radius-sheet-top) 0 0;
+    padding: 30px 22px 48px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid rgba(23, 33, 31, 0.07);
+    border-radius: var(--radius-card);
+    padding: 26px 20px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--teal-tint);
+    border: 1px solid rgba(14, 95, 88, 0.2);
+    border-radius: 15px;
+    padding: 7px 13px;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+
+  .card > p.intro {
+    margin: 16px 0 0;
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  section {
+    margin-top: 30px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(23, 33, 31, 0.08);
+  }
+
+  section:first-of-type {
+    margin-top: 26px;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.1px;
+    color: var(--ink);
+  }
+
+  h3 {
+    margin: 18px 0 0;
+    font-size: 14.5px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    color: var(--label-muted);
+  }
+
+  section p {
+    margin: 10px 0 0;
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  section p:first-of-type {
+    margin-top: 12px;
+  }
+
+  ul {
+    margin: 10px 0 0;
+    padding-left: 20px;
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  li { margin-top: 6px; }
+  li:first-child { margin-top: 0; }
+
+  li strong { color: var(--ink); }
+
+  .callout {
+    margin: 12px 0 0;
+    padding: 14px 16px;
+    background: var(--teal-tint);
+    border: 1px solid rgba(14, 95, 88, 0.18);
+    border-radius: 14px;
+    color: var(--teal);
+    font-size: 14.5px;
+    line-height: 1.55;
+  }
+
+  .callout strong { font-weight: 700; }
+
+  a {
+    color: var(--teal);
+    font-weight: 600;
+  }
+
+  .contact {
+    display: block;
+    margin-top: 14px;
+    padding: 16px;
+    background: var(--teal);
+    border-radius: 17px;
+    color: #FFFFFF;
+    font-family: var(--font-sans);
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .contact:active { opacity: 0.9; }
+
+  .note {
+    margin: 20px auto 0;
+    max-width: 640px;
+    color: var(--label-muted);
+    font-size: 13px;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  @media (min-width: 620px) {
+    header { padding: 56px 40px 40px; }
+    main { padding: 40px; }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="mark" aria-hidden="true">H</div>
+    <h1>Terms of Use</h1>
+    <p>The terms you agree to by creating a Havli account and using the app.</p>
+  </header>
+
+  <main>
+    <div class="card">
+      <span class="badge">Effective 28 September 2026</span>
+      <p class="intro">
+        These Terms of Use (&ldquo;Terms&rdquo;) govern your access to and
+        use of Havli, a household budgeting, to&#8209;do, and shared
+        calendar app. By creating an account or using Havli, you agree to
+        these Terms. If you don&rsquo;t agree, please don&rsquo;t use the
+        app.
+      </p>
+
+      <section>
+        <h2>Who operates Havli</h2>
+        <p>
+          Havli is developed and operated by Simonas Mickevi&#269;ius,
+          trading as an individual (individuali veikla) in Lithuania.
+          References to &ldquo;we&rdquo;, &ldquo;us&rdquo;, or
+          &ldquo;Havli&rdquo; in these Terms mean Simonas Mickevi&#269;ius.
+        </p>
+        <p>
+          Contact: <a href="mailto:sim.mickevicius@gmail.com">sim.mickevicius@gmail.com</a>
+        </p>
+      </section>
+
+      <section>
+        <h2>The service</h2>
+        <p>
+          Havli lets a household (a small group of people, such as a
+          family or housemates) share a single budget: logging expenses
+          and income, tracking to&#8209;dos, coordinating a shared
+          calendar, and setting savings goals. Data you and other members
+          of your household enter is visible to everyone in that
+          household by design &mdash; that shared visibility is the point
+          of the app. See our
+          <a href="../">Privacy Policy</a> for what data Havli collects
+          and how it&rsquo;s used.
+        </p>
+      </section>
+
+      <section>
+        <h2>Accounts</h2>
+        <p>
+          You need an account to use Havli. You&rsquo;re responsible for
+          the accuracy of the information you provide and for keeping your
+          login credentials secure. You&rsquo;re responsible for
+          everything that happens under your account, including any data
+          entered by you or, in a shared household, other members you
+          invite.
+        </p>
+        <p>
+          You can delete your account at any time from inside the app
+          (Settings &rarr; Delete account). See our Privacy Policy&rsquo;s
+          &ldquo;Delete Your Account and Data&rdquo; section for exactly
+          what happens to a shared household&rsquo;s data when you do.
+        </p>
+      </section>
+
+      <section>
+        <h2>Havli Premium (subscriptions)</h2>
+        <p>
+          Havli offers an optional auto&#8209;renewing subscription,
+          Havli Premium, which unlocks unlimited expenses and to&#8209;dos,
+          a shared calendar, notifications, and up to 6 household members
+          (in place of the Free plan&rsquo;s limits). Havli Premium is
+          offered as a Monthly or Yearly plan, each starting with a 7&#8209;day
+          free trial, at the price shown in the app at the time of
+          purchase.
+        </p>
+        <p>
+          Subscriptions are billed and managed entirely through the app
+          store you purchased from &mdash; the Apple App Store on iOS, or
+          Google Play on Android. Havli never receives or stores your
+          card number or other payment details.
+        </p>
+        <ul>
+          <li><strong>Auto&#8209;renewal</strong> &mdash; unless
+            cancelled at least 24 hours before the end of the current
+            period, your subscription renews automatically at the same
+            price and duration, and your app store account is charged for
+            renewal.</li>
+          <li><strong>Free trial</strong> &mdash; if a plan includes a
+            free trial, payment is charged at the end of the trial period
+            unless you cancel before it ends.</li>
+          <li><strong>Managing or cancelling</strong> &mdash; manage or
+            cancel your subscription any time through your Apple ID
+            account settings (iOS) or Google Play account settings
+            (Android), not through Havli directly.</li>
+          <li><strong>Refunds</strong> &mdash; refund requests are handled
+            by Apple or Google under their own refund policies, since
+            they process the payment. Havli does not directly issue
+            refunds.</li>
+          <li><strong>Price changes</strong> &mdash; if we change Havli
+            Premium&rsquo;s price, we&rsquo;ll do so consistent with the
+            app store&rsquo;s own rules for notifying subscribers before
+            any new price applies to you.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Acceptable use</h2>
+        <p>
+          Use Havli only for its intended purpose: tracking your own
+          household&rsquo;s budget, tasks, and calendar. Don&rsquo;t use
+          it to store or share unlawful content, attempt to disrupt or
+          reverse-engineer the service, or access another household&rsquo;s
+          data without authorization.
+        </p>
+      </section>
+
+      <section>
+        <h2>Your content</h2>
+        <p>
+          You retain ownership of the expenses, to&#8209;dos, calendar
+          events, and other data you enter into Havli. You&rsquo;re
+          solely responsible for its accuracy. We store and process it
+          only to provide the app&rsquo;s functionality, as described in
+          our Privacy Policy.
+        </p>
+      </section>
+
+      <section>
+        <h2>Termination</h2>
+        <p>
+          You may stop using Havli and delete your account at any time.
+          We may suspend or terminate access to the service for a user
+          who violates these Terms, or discontinue the service entirely
+          with reasonable notice where practical.
+        </p>
+      </section>
+
+      <section>
+        <h2>Disclaimer and limitation of liability</h2>
+        <p>
+          Havli is provided &ldquo;as is&rdquo;, without warranties of any
+          kind. We don&rsquo;t guarantee the app will be error-free or
+          uninterrupted. Havli is a tool for tracking figures you enter
+          yourself &mdash; it does not connect to your bank, provide
+          financial advice, or verify the accuracy of any amount you or
+          another household member enters. To the fullest extent
+          permitted by law, we are not liable for indirect, incidental,
+          or consequential damages arising from your use of the app.
+        </p>
+      </section>
+
+      <section>
+        <h2>Governing law</h2>
+        <p>
+          These Terms are governed by the laws of Lithuania, without
+          regard to conflict-of-law principles. If you're a consumer
+          resident elsewhere in the EU/EEA, mandatory consumer-protection
+          rules of your own country of residence may also apply and
+          aren&rsquo;t overridden by this clause.
+        </p>
+      </section>
+
+      <section>
+        <h2>Changes to these Terms</h2>
+        <p>
+          We may update these Terms as the app changes. If we make a
+          material change, we&rsquo;ll let you know inside the app. The
+          &ldquo;Effective&rdquo; date at the top of this page always
+          reflects the version currently in force. Continuing to use
+          Havli after a change takes effect means you accept the updated
+          Terms.
+        </p>
+      </section>
+
+      <section>
+        <h2>Contact</h2>
+        <p>
+          Questions about these Terms can be sent directly to the
+          developer:
+        </p>
+        <a class="contact" href="mailto:sim.mickevicius@gmail.com">Email sim.mickevicius@gmail.com</a>
+      </section>
+    </div>
+
+    <p class="note">
+      Havli &middot; developed by Simonas Mickevi&#269;ius, Lithuania
+    </p>
+  </main>
+</body>
+</html>
