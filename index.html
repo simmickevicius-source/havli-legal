@@ -257,7 +257,7 @@
 
   <main>
     <div class="card">
-      <span class="badge">Effective 28 September 2026</span>
+      <span class="badge">Effective 5 October 2026</span>
       <p class="intro">
         Havli is a household budgeting app. This policy explains what
         information it collects, why, who it&rsquo;s shared with, how long
@@ -286,10 +286,16 @@
           and using the app involves the following personal data:
         </p>
         <ul>
-          <li><strong>Account data</strong> &mdash; the email address and
-            password you sign up with, handled by our authentication
-            provider (see &ldquo;Who we share data with&rdquo; below). We
-            never see or store your password ourselves.</li>
+          <li><strong>Account data</strong> &mdash; either the email
+            address and password you sign up with, or, if you choose to
+            sign in with Google or Apple instead, the email address (and
+            name, if the provider shares one) they pass to us to create
+            and recognize your account. Either way, this is handled by
+            our authentication provider (see &ldquo;Who we share data
+            with&rdquo; below) &mdash; we never see or store your
+            password ourselves, and signing in with Google or Apple
+            means we never receive a password for your account at
+            all.</li>
           <li><strong>Household &amp; membership data</strong> &mdash; your
             household&rsquo;s name, currency, a display name and colour you
             pick for yourself, and your role within the household.</li>
@@ -358,6 +364,13 @@
             in the EU (AWS eu-west-1, Ireland), so this data stays within
             the EU/EEA &mdash; there&rsquo;s no international transfer
             involved for this processor.</li>
+          <li><strong>Google Sign-In / Sign in with Apple</strong>
+            &mdash; if you choose to sign in this way instead of with a
+            password, Google or Apple shares your email address (and
+            name, if available) with Supabase to create and verify your
+            account. We don&rsquo;t receive anything else from either
+            provider, and signing in this way is entirely your choice
+            &mdash; email/password sign-up remains available as well.</li>
           <li><strong>Firebase Cloud Messaging (Google)</strong> &mdash;
             delivers push notifications to your device. Google receives
             your device&rsquo;s push token for this purpose only. As part
